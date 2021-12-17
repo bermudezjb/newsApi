@@ -11,29 +11,33 @@ class List extends Component {
     };
   }
 
-  async componentDidMount() {
-    const news = await axios.get("https://api.nytimes.com/svc/movies/v2/reviews/search.json?query=godfather&api-key=XKfdUqvB6EPaHsMnthYuY68Z9G6QUpSS"
+  async componentDidMount(){
+  try{
+    const news = await axios.get(
+      "https://api.nytimes.com/svc/movies/v2/reviews/search.json?query=godfather&api-key=XKfdUqvB6EPaHsMnthYuY68Z9G6QUpSS"
     );
     const data = news.data.results;
     console.log(data);
     this.setState({ allNews: data });
+  } catch (e){
+    console.log("error")
+  }
+  
   }
 
   paintNews = () => {
-    return this.state.allNews.map((card, i) => <Card info={card} key={i} />);
+    return this.state.allNews.map((card, i) => (
+      <Card info={card} delete={() => this.deleteNew(i)} key={i} />
+    ));
   };
 
-  deleteNew = (i) =>{
-    const card = this.state.allNews.filter((card,j) => j !==i)
-     this.setState({allNews : card})
-   
-   }
+  deleteNew = (i) => {
+    const card = this.state.allNews.filter((card, j) => j !== i);
+    this.setState({ allNews: card });
+  };
 
   render() {
-    return <div>
-  {this.paintNews()}
-
-    </div>
+    return <div>{this.paintNews()}</div>;
   }
 }
 
