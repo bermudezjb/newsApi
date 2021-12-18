@@ -1,6 +1,12 @@
 import React, { Component } from "react";
+import { Navigate } from "react-router-dom";
 
 class Form extends Component {
+  constructor(props) {
+    super(props);
+    this.state = { redireccion: "" };
+  }
+
   handleSubmit = (event) => {
     event.preventDefault();
     const display_title = event.target.title.value;
@@ -14,9 +20,13 @@ class Form extends Component {
       summary_short,
       publication_date
     );
+    this.setState({ redireccion: true });
   };
 
   render() {
+    if (this.state.redireccion) {
+      return <Navigate to="/list" />;
+    }
     return (
       <div>
         <form onSubmit={this.handleSubmit}>
@@ -36,7 +46,7 @@ class Form extends Component {
           <br />
           <input type="text" id="review" name="review" />
           <br />
-          <button>Add news</button>
+          <button className="button">Add news</button>
         </form>
       </div>
     );

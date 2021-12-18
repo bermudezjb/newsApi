@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import { userContext } from "../../context/userContext";
+import "./Home.css";
 
 class Home extends Component {
   static contextType = userContext; // Adhiere el contexto deseado a la clase
@@ -7,7 +8,6 @@ class Home extends Component {
   constructor(props) {
     super(props);
     this.name = React.createRef(); // crear la referencia
-    
   }
 
   handleSubmit = (event) => {
@@ -25,11 +25,11 @@ class Home extends Component {
     return (
       <div>
         <form onSubmit={this.handleSubmit}>
-          <label htmlFor="name">Nombre:</label>
+          <label htmlFor="name" className="label">Nombre:</label>
           <br />
           <input type="text" id="name" name="name" ref={this.name} />
           <br />
-          <input type="submit" />
+          <input className="button" type="submit" />
         </form>
       </div>
     );
