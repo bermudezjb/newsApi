@@ -1,5 +1,23 @@
-.card {
-  border: 2px solid red;
-  width: 600px;
-  margin-left: 350px;
+.cards {
+  background-color: #f5fbf3;
+  width: 64%;
+  margin: 4.6rem auto;
+  height: 8rem;
+  padding: 3rem;
+  border-radius: 5px;
+  box-shadow: 10px 10px 10px #deccca;
+  height: auto;
+}
+
+.button {
+  background: #3a389b;
+  color: white;
+  text-transform: uppercase;
+  border: none;
+  margin-top: 40px;
+  padding: 20px;
+  font-size: 16px;
+  font-weight: 100;
+  letter-spacing: 10px;
+  border-radius: 25px;
 }

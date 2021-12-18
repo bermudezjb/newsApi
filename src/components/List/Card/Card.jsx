@@ -11,7 +11,7 @@ export class Card extends Component {
           <p>{byline}</p>
           <h5>{summary_short}</h5>
           <h6>{publication_date}</h6>
-          <button onClick={this.props.delete}> Borrar</button>
+          <button className="button" onClick={this.props.delete}> Borrar</button>
         </div>
       </div>
     );
